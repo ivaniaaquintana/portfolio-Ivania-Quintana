@@ -328,6 +328,10 @@ a     { text-decoration: none; color: inherit; }
   object-fit: contain;
   border-radius: var(--radius) var(--radius) 0 0;
   box-shadow: none;
+
+    position: relative;
+  right: -80px;
+   bottom: -60px;
 }
 
 /* ──────────────────────────────────────
@@ -410,7 +414,18 @@ a     { text-decoration: none; color: inherit; }
   text-align: center;
   margin: 0;
 }
+.iq-tool-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Hace que el logo se vea igual que los íconos */
+.iq-tool-img {
+  width: 1.5rem;   /* mismo tamaño típico de Bootstrap Icons */
+  height: 1.5rem;
+  object-fit: contain;
+}
 /* ──────────────────────────────────────
    APRENDIZAJE — fondo: #EDD5DA
 ────────────────────────────────────── */
@@ -425,7 +440,7 @@ a     { text-decoration: none; color: inherit; }
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
 }
-.iq-wf-a { width: 80%; top: 0;    left: 0;   transform: rotate(0deg); }
+.iq-wf-a { width: 60%; top: 0;    left: 0;   transform: rotate(0deg); }
 
 
 .iq-learn-list {
