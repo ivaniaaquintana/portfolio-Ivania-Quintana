@@ -1,219 +1,731 @@
-/* =========================
-   VARIABLES DE DISEÑO
-   ========================= */
-/* Aquí defines todos los colores del sistema.
-   Esto permite cambiar el diseño completo fácilmente */
+/* ══════════════════════════════════════════════════
+   COLORES EXTRAÍDOS DIRECTAMENTE DEL FIGMA
+   ──────────────────────────────────────────────
+   Hero / Navbar / Footer bg  →  #0B0C1D  (navy casi negro)
+   Acento rosa / coral        →  #D94E6D  (rosa del título hero y botones)
+   Fondo secciones rosadas    →  #EDD5DA  (caso estudio + aprendizaje)
+   Fondo contacto             →  #F5EDE8  (crema cálido)
+   Fondo blanco secciones     →  #FFFFFF
+   Card Descripción           →  #DCE7F5  (azul claro suave)
+   Card Desafío               →  #0F0F18  (negro azulado)
+   Card Solución              →  #F0CDD5  (rosa pastel)
+   Texto principal            →  #1A1A1A
+   Texto secundario           →  #6B6777
+   Borde / separador          →  #E5E0DB
+   ══════════════════════════════════════════════════ */
+
 :root {
-  --blue: #2f5fb3;          /* Color principal (hero + about) */
+  /* ── Colores principales ── */
+  --c-dark:        #144EA0;   /* hero, about section, tags hover */
+  --c-black:       #000000;   /* navbar + footer */
+  --c-pink:        #CF98AE;   /* acento: títulos hero, botones, checks */
+  --c-rose-bg:     #CF98AE;   /* fondo caso estudio */
+  --c-rose-learn:  #F0DFE6;   /* fondo aprendizaje */
+  --c-cream-bg:    #F5EDE8;   /* fondo contacto */
+  --c-white:       #FFFFFF;
+  --c-offwhite:    #F8F6F3;   /* hover fondos sutiles */
 
-  --heading: #0f172a;       /* Color de títulos */
-  --text: #1f2937;          /* Texto principal */
-  --gray: #6b7280;          /* Texto secundario */
+  /* ── Cards "El Proyecto" ── */
+  --c-card-blue:   #144EA0;   /* Descripción */
+  --c-card-dark:   #0F0F18;   /* Desafío Principal */
+  --c-card-pink:   #CF98AE;   /* Solución Propuesta */
 
-  --nav-text: rgba(255,255,255,0.85); /* Texto navbar (suavizado) */
-  --nav-hover: #ffffff;     /* Hover navbar */
+  /* ── Texto ── */
+  --c-text:        #1A1A1A;
+  --c-muted:       #6B6777;
+  --c-border:      #E5E0DB;
 
-  --beige: #f4efe9;         /* Fondo general */
-  --pink: #d99aa5;          /* Botón contacto */
-  --border: #c7d2fe;        /* Bordes de cards */
+  /* ── Tipografía ── */
+  --font-display:  'DM Serif Display', Georgia, serif;
+  --font-body:     'DM Sans', system-ui, sans-serif;
+
+  /* ── Utilidades ── */
+  --radius:        10px;
+  --radius-lg:     16px;
+  --transition:    0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md:     0 6px 28px rgba(0,0,0,0.10);
+  --shadow-lg:     0 14px 44px rgba(0,0,0,0.14);
 }
 
-/* =========================
-   BASE GLOBAL
-   ========================= */
-/* Estilos generales del sitio */
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--beige);
-  color: var(--text);
-  margin-top: 70px; /* Compensa navbar fijo */
+/* ──────────────────────────────────────
+   BASE RESET
+────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: var(--font-body);
+  color: var(--c-text);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+img   { max-width: 100%; height: auto; display: block; }
+a     { text-decoration: none; color: inherit; }
 
-/* =========================
+/* ──────────────────────────────────────
    NAVBAR
-   ========================= */
-/* Fondo del navbar */
-.custom-navbar {
-  background: #0b1a0f;
+────────────────────────────────────── */
+.iq-navbar {
+  background: var(--c-black);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background var(--transition), box-shadow var(--transition);
 }
-
-/* Links del navbar */
-.navbar .nav-link {
-  color: var(--nav-text) !important;
-  transition: 0.2s;
+.iq-navbar.scrolled {
+  background: rgba(0,0,0,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
-
-/* Hover del navbar */
-.navbar .nav-link:hover {
-  color: var(--nav-hover) !important;
+.iq-logo {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  color: #FFFFFF !important;
+  letter-spacing: 0.04em;
 }
-
-/* Logo / nombre */
-.navbar-brand {
-  color: white !important;
-  font-weight: 600;
+.iq-navbar .nav-link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: rgba(255,255,255,0.70) !important;
+  padding: 0.3rem 0 !important;
+  position: relative;
+  transition: color var(--transition);
 }
-
-/* =========================
-   TIPOGRAFÍA
-   ========================= */
-/* Títulos principales */
-h1, h2 {
-  color: var(--heading);
-  letter-spacing: -0.5px; /* Ajuste fino tipo Figma */
+.iq-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--c-pink);
+  transition: width var(--transition);
 }
-
-/* Excepción: títulos en fondos oscuros */
-.hero h1,
-.about h2 {
-  color: white;
+.iq-navbar .nav-link:hover,
+.iq-navbar .nav-link.active {
+  color: #FFFFFF !important;
 }
+.iq-navbar .nav-link:hover::after,
+.iq-navbar .nav-link.active::after { width: 100%; }
 
-/* =========================
-   HERO (SECCIÓN PRINCIPAL)
-   ========================= */
-.hero {
-  background: var(--blue);
+/* ──────────────────────────────────────
+   HERO  —  fondo: #0B0C1D
+────────────────────────────────────── */
+.iq-hero {
+  background-color: var(--c-dark);
+  min-height: 100vh;
   padding: 140px 0 100px;
-  color: white;
-}
-
-/* Texto dentro del hero */
-.hero p {
-  color: rgba(255,255,255,0.85); /* Blanco suavizado */
-}
-
-/* Texto pequeño superior */
-.tag {
-  font-size: 12px;
-  letter-spacing: 2px;
-  opacity: 0.7;
-}
-
-/* =========================
-   DIVIDERS (LÍNEAS)
-   ========================= */
-/* Línea decorativa debajo de títulos */
-.divider {
-  width: 50px;
-  height: 2px;
-  background: var(--heading);
-  margin: 16px 0;
-}
-
-/* Versión blanca (para fondos oscuros) */
-.divider.light {
-  background: white;
-}
-
-/* =========================
-   PROYECTOS
-   ========================= */
-.projects {
-  padding: 90px 0;
-}
-
-/* Card individual */
-.project-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  position: relative;
   overflow: hidden;
-  transition: 0.3s;
 }
-
-/* Efecto hover (levanta la card) */
-.project-card:hover {
-  transform: translateY(-6px);
+/* sutil glow de color para dar profundidad */
+.iq-hero::before {
+  content: '';
+  position: absolute;
+  top: -160px; right: -80px;
+  width: 560px; height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217,78,109,0.10) 0%, transparent 68%);
+  pointer-events: none;
 }
-
-/* Imagen de la card */
-.project-card img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-/* Contenido interno */
-.project-card .content {
-  padding: 16px;
-}
-
-/* Texto secundario */
-.project-card p {
-  color: var(--gray);
-  font-size: 14px;
-}
-
-/* Link */
-.project-card a {
-  color: var(--blue);
+.iq-hero-label {
+  font-size: 0.72rem;
   font-weight: 500;
-  text-decoration: none;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.4rem;
 }
-
-/* =========================
-   ABOUT (SECCIÓN AZUL)
-   ========================= */
-.about {
-  background: var(--blue);
-  color: white;
-  padding: 100px 0;
+/* Título hero en rosa coral — #D94E6D */
+.iq-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.2vw, 3.75rem);
+  line-height: 1.12;
+  color: var(--c-pink);      /* #D94E6D */
+  margin-bottom: 1.4rem;
+  font-weight: 400;
 }
-
-/* =========================
-   CONTACTO
-   ========================= */
-.contact {
-  padding: 100px 0;
+/* Línea decorativa en rosa */
+.iq-hero-rule {
+  width: 44px;
+  height: 2px;
+  background: var(--c-pink);
+  margin-bottom: 1.4rem;
 }
-
-/* Inputs y textarea */
-.form input,
-.form textarea {
-  width: 100%;
-  border: 1px solid #93c5fd;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
+.iq-hero-sub {
+  font-size: 0.975rem;
+  line-height: 1.80;
+  color: rgba(255,255,255,0.60);
+  max-width: 460px;
+  margin-bottom: 2.4rem;
 }
-
-/* Botón de envío */
-.form button {
-  width: 100%;
-  background: var(--pink);
-  border: none;
-  padding: 12px;
-  color: white;
-  border-radius: 8px;
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-.footer {
-  background: #0b1a0f;
-  color: white;
-  padding: 40px 0;
-}
-
-/* Texto del footer */
-.footer p {
-  color: rgba(255,255,255,0.7);
-}
-
-/* Iconos sociales */
-.social i {
-  margin: 0 8px;
+/* Botón hero: borde semitransparente sobre fondo oscuro */
+.iq-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #111111;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.30);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.6rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background var(--transition), border-color var(--transition),
+              color var(--transition), transform var(--transition);
+}
+.iq-btn-cta:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.55);
+  color: #FFFFFF;
+  transform: translateX(3px);
 }
 
-/* =========================
+/* ──────────────────────────────────────
+   HELPERS PARA SECCIONES
+────────────────────────────────────── */
+.iq-sec-white  { background: var(--c-white);      padding: 96px 0; }
+.iq-sec-rose   { background: var(--c-rose-bg);    padding: 96px 0; } /* #CF98AE — caso estudio */
+.iq-sec-learn  { background: var(--c-rose-learn); padding: 96px 0; } /* #F0DFE6 — aprendizaje */
+.iq-sec-cream  { background: var(--c-cream-bg);   padding: 96px 0; } /* #F5EDE8 */
+
+/* eyebrow labels */
+.iq-eyebrow {
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 0.6rem;
+}
+.iq-eyebrow-dark {
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 0.6rem;
+}
+/* headings */
+.iq-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--c-text);
+}
+/* body copy */
+.iq-body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--c-muted);
+}
+
+/* ──────────────────────────────────────
+   PROJECT CARDS
+────────────────────────────────────── */
+.iq-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.iq-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.iq-card-img-wrap {
+  height: 198px;
+  overflow: hidden;
+  background: var(--c-offwhite);
+}
+.iq-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.iq-card:hover .iq-card-img { transform: scale(1.04); }
+.iq-card-body { padding: 1.4rem 1.4rem 1.6rem; }
+.iq-card-num {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-pink);
+  font-weight: 500;
+}
+.iq-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--c-text);
+  margin: 0.45rem 0 0.7rem;
+}
+.iq-card-desc {
+  font-size: 0.855rem;
+  line-height: 1.70;
+  color: var(--c-muted);
+  margin-bottom: 1.1rem;
+}
+.iq-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--c-text);
+  border-bottom: 1px solid var(--c-text);
+  padding-bottom: 1px;
+  transition: color var(--transition), border-color var(--transition), gap var(--transition);
+}
+.iq-arrow-link:hover {
+  color: var(--c-pink);
+  border-color: var(--c-pink);
+  gap: 0.65rem;
+}
+
+/* ──────────────────────────────────────
+   CASO ESTUDIO BANNER — fondo: #EDD5DA
+────────────────────────────────────── */
+.iq-case-banner {
+  padding-top: 72px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* TEXTO ARRIBA */
+.iq-case-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* TÍTULO */
+.iq-case-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.20;
+  color: var(--c-text);
+  margin-top: 0.75rem;
+}
+
+/* CONTENEDOR IMAGEN */
+.iq-mockup-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+
+/* IMAGEN */
+.iq-mockup-img {
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: none;
+}
+
+/* ──────────────────────────────────────
+   EL PROYECTO — 3 info cards
+────────────────────────────────────── */
+.iq-proyecto-sec { border-top: 1px solid var(--c-border); }
+
+.iq-icard {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.iq-icard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* Header inline: icono + título en la misma fila */
+.iq-icard-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+.iq-icard-icon-inline {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Card azul — #144EA0 */
+.iq-icard--blue { background: var(--c-card-blue); }
+.iq-icard--blue .iq-icard-icon-inline { color: rgba(255,255,255,0.85); }
+.iq-icard--blue .iq-icard-title       { color: #FFFFFF; }
+.iq-icard--blue .iq-icard-text        { color: rgba(255,255,255,0.80); }
+
+/* Card oscura — #0F0F18 */
+.iq-icard--dark { background: var(--c-card-dark); }
+.iq-icard--dark .iq-icard-icon-inline { color: rgba(255,255,255,0.70); }
+.iq-icard--dark .iq-icard-title       { color: #FFFFFF; }
+.iq-icard--dark .iq-icard-text        { color: rgba(255,255,255,0.68); }
+
+/* Card rosa — #CF98AE */
+.iq-icard--pink { background: var(--c-card-pink); }
+.iq-icard--pink .iq-icard-icon-inline { color: rgba(255,255,255,0.85); }
+.iq-icard--pink .iq-icard-title       { color: #FFFFFF; }
+.iq-icard--pink .iq-icard-text        { color: rgba(255,255,255,0.82); }
+
+.iq-icard-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+}
+.iq-icard-text {
+  font-size: 0.855rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────
+   HERRAMIENTAS UTILIZADAS
+────────────────────────────────────── */
+.iq-tools-sec { border-top: 1px solid var(--c-border); }
+.iq-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.iq-tool-icon {
+  font-size: 2rem;
+  color: var(--c-text);
+  line-height: 1;
+  transition: color var(--transition);
+}
+.iq-tool:hover .iq-tool-icon {
+  color: var(--c-pink);
+}
+.iq-tool-label {
+  font-size: 0.76rem;
+  line-height: 1.40;
+  color: var(--c-muted);
+  text-align: center;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────
+   APRENDIZAJE — fondo: #EDD5DA
+────────────────────────────────────── */
+.iq-wf-grid {
+  position: relative;
+  height: 310px;
+}
+.iq-wf {
+  position: absolute;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+.iq-wf-a { width: 80%; top: 0;    left: 0;   transform: rotate(0deg); }
+
+
+.iq-learn-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.iq-learn-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--c-text);
+}
+/* check icon outline — color oscuro como en el Figma */
+.iq-check-icon {
+  color: var(--c-text);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ──────────────────────────────────────
+   HABILIDADES — TAGS
+────────────────────────────────────── */
+.iq-skills-sec { border-top: 1px solid var(--c-border); }
+.iq-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+.iq-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  font-size: 0.80rem;
+  background: transparent;
+  cursor: default;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.iq-tag:hover { opacity: 0.75; transform: translateY(-2px); }
+
+/* Azul — #144EA0 */
+.iq-tag--blue {
+  border: 1.5px solid var(--c-dark);
+  color: var(--c-dark);
+}
+/* Rosa — #CF98AE */
+.iq-tag--pink {
+  border: 1.5px solid var(--c-rose-bg);
+  color: var(--c-rose-bg);
+}
+
+/* ──────────────────────────────────────
+   SELECCIÓN DE PROYECTO
+────────────────────────────────────── */
+.iq-selection-sec { border-top: 1px solid var(--c-border); }
+.iq-question-label {
+  font-size: 0.975rem;
+  font-weight: 500;
+  color: var(--c-text);
+  margin-bottom: 0.75rem;
+}
+.iq-laptop-wrap { display: inline-block; }
+.iq-laptop-img  {
+  max-height: 300px;
+  object-fit: contain;
+  filter: none;
+}
+
+/* ──────────────────────────────────────
+   HOLA SOY IVANIA — fondo: #0B0C1D
+────────────────────────────────────── */
+.iq-sec-about {
+  background: var(--c-dark);   /* #0B0C1D */
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.iq-sec-about::before {
+  content: '';
+  position: absolute;
+  bottom: -120px; left: -80px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217,78,109,0.08) 0%, transparent 68%);
+  pointer-events: none;
+}
+.iq-eyebrow-light {
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.40);
+  margin-bottom: 0.9rem;
+}
+.iq-about-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--c-pink);   /* mismo rosa que el héroe */
+  margin-bottom: 0;
+}
+.iq-about-text {
+  font-size: 0.975rem;
+  line-height: 1.82;
+  color: rgba(255,255,255,0.62);
+  margin: 0;
+}
+.iq-about-img-wrap {
+  display: inline-block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+}
+.iq-about-img {
+  width: 100%;
+  max-width: 360px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* ──────────────────────────────────────
+   CONTACTO — fondo: #F5EDE8
+────────────────────────────────────── */
+.iq-contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.20;
+  color: var(--c-text);
+}
+.iq-form-label {
+  display: block;
+  font-size: 0.77rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  margin-bottom: 0.45rem;
+}
+/* Inputs con borde suave rosado en focus */
+.iq-input.form-control {
+  background: var(--c-white);
+  border: 1px solid #CBBFBA;
+  border-radius: 4px;
+  padding: 0.80rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--c-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-shadow: none;
+}
+.iq-input.form-control::placeholder { color: #B4ABA6; }
+.iq-input.form-control:focus {
+  border-color: var(--c-pink);
+  box-shadow: 0 0 0 3px rgba(217,78,109,0.13);
+  outline: none;
+}
+.iq-input.form-control.is-invalid {
+  border-color: #C0392B;
+}
+/* Botón enviar — rosa sólido como en el Figma */
+.iq-btn-send {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--c-pink);   /* #D94E6D */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 0.88rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.iq-btn-send:hover {
+  background: #C03D5C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,78,109,0.32);
+}
+.iq-btn-send:active { transform: translateY(0); }
+.iq-form-feedback {
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+.iq-form-feedback.success { background: #D4EDDA; color: #155724; }
+.iq-form-feedback.error   { background: #F8D7DA; color: #721C24; }
+
+/* ──────────────────────────────────────
+   FOOTER — fondo: #0B0C1D
+────────────────────────────────────── */
+.iq-footer {
+  background: var(--c-black);   /* #000000 */
+  padding: 60px 0 32px;
+}
+.iq-footer-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+.iq-footer-bio {
+  font-size: 0.855rem;
+  line-height: 1.70;
+  color: rgba(255,255,255,0.55);
+  max-width: 400px;
+  margin-bottom: 0.4rem;
+}
+.iq-footer-link {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.45);
+  transition: color var(--transition);
+}
+.iq-footer-link:hover { color: var(--c-pink); }
+.iq-social {
+  display: flex;
+  gap: 0.65rem;
+}
+.iq-social-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.iq-social-btn:hover {
+  background: var(--c-pink);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+.iq-footer-divider {
+  border-color: rgba(255,255,255,0.08);
+  margin: 2rem 0 1.25rem;
+}
+.iq-footer-copy {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.28);
+  margin: 0;
+}
+
+/* ──────────────────────────────────────
+   ANIMACIONES
+────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.70s ease forwards;
+}
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.30s; }
+.delay-3 { animation-delay: 0.48s; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.60s ease, transform 0.60s ease;
+}
+.reveal.visible          { opacity: 1; transform: translateY(0); }
+.reveal.delay-r1         { transition-delay: 0.08s; }
+.reveal.delay-r2         { transition-delay: 0.16s; }
+.reveal.delay-r3         { transition-delay: 0.24s; }
+
+/* ──────────────────────────────────────
    RESPONSIVE
-   ========================= */
-/* Ajustes para móvil */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px; /* Reduce título */
-  }
+────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .iq-sec-white,
+  .iq-sec-rose,
+  .iq-sec-learn,
+  .iq-sec-cream { padding: 64px 0; }
+  .iq-hero      { padding: 110px 0 72px; }
+  .iq-social    { justify-content: flex-start; }
+  .iq-wf-grid   { height: 220px; }
+  .iq-mockup-wrap { justify-content: center; }
+}
+@media (max-width: 575.98px) {
+  .iq-sec-white,
+  .iq-sec-rose,
+  .iq-sec-learn,
+  .iq-sec-cream { padding: 48px 0; }
+  .iq-hero      { min-height: auto; padding: 100px 0 60px; }
+  .iq-wf-grid   { height: 176px; }
 }

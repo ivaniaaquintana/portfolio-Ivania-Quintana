@@ -1,193 +1,359 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio Ivania</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ivania Quintana — Portafolio UX/UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="#">Ivania</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-        <li><a href="#about" class="nav-link">Sobre mí</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="col-lg-6" data-aos="fade-up">
-
-      <span class="tag">Portafolio UX/UI — 2026</span>
-
-      <h1 style="color:#CF98AE;">
-  Para crear, primero hay que cuestionarlo todo.
-</h1>
-
-      <div class="divider light"></div>
-
-      <p>
-        Transformo ideas en soluciones digitales a través de investigación, estrategia y diseño. Me enfoco en crear experiencias intuitivas, accesibles y con impacto real.
-      </p>
-
-      <button class="btn btn-dark mt-3">
-        Contáctame <i class="bi bi-arrow-right ms-2"></i>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg iq-navbar fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand iq-logo" href="#">IQ</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-lg-4 gap-2 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#caso-estudio">Caso Estudio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre Mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contactos</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- PROYECTOS -->
-<section id="proyectos" class="projects">
+  <!-- HERO -->
+  <section class="iq-hero d-flex align-items-center" id="inicio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-12">
+          <p class="iq-hero-label animate-fade-up">PORTAFOLIO UX/UI — 2026</p>
+          <h1 class="iq-hero-title animate-fade-up delay-1">
+            Para crear, primero hay que cuestionarlo todo.
+          </h1>
+          <div class="iq-hero-rule animate-fade-up delay-2"></div>
+          <p class="iq-hero-sub animate-fade-up delay-2">
+            Transformo ideas en soluciones digitales a través de investigación, estrategia y diseño. Me enfoco en crear experiencias intuitivas, accesibles y con impacto real.
+          </p>
+          <a href="#contacto" class="iq-btn-cta animate-fade-up delay-3">
+            Contáctame <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="iq-sec-white" id="proyectos">
+    <div class="container">
+      <p class="iq-eyebrow">02 — PROYECTOS</p>
+      <h2 class="iq-title mb-5">Proyectos</h2>
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <article class="iq-card h-100">
+            <div class="iq-card-img-wrap">
+              <img src="assets/modulo-1.jpg" alt="UX4ALL" class="iq-card-img"/>
+            </div>
+            <div class="iq-card-body">
+              <span class="iq-card-num">PROYECTO 1</span>
+              <h3 class="iq-card-title">UX4ALL</h3>
+              <p class="iq-card-desc">Diseño de experiencia inclusiva enfocada en accesibilidad y usabilidad, para garantizar un producto comprensible y usable por distintos tipos de usuarios.</p>
+              <a href="assets/docs/UX4ALL.pdf" target="_blank">Ver Proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <article class="iq-card h-100">
+            <div class="iq-card-img-wrap">
+              <img src="assets/modulo-2.jpg" alt="Plataforma Educativa" class="iq-card-img"/>
+            </div>
+            <div class="iq-card-body">
+              <span class="iq-card-num">PROYECTO 2</span>
+              <h3 class="iq-card-title">Plataforma Educativa</h3>
+              <p class="iq-card-desc">Estructuración de una plataforma educativa optimizando la organización de contenidos y navegación para facilitar el acceso y comprensión del usuario.</p>
+              <a href="assets/docs/Plataformas educativas.pdf" target="_blank">Ver Proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <article class="iq-card h-100">
+            <div class="iq-card-img-wrap">
+              <img src="assets/modulo-3.jpg" alt="Interfaz Cursos Online" class="iq-card-img"/>
+            </div>
+            <div class="iq-card-body">
+              <span class="iq-card-num">PROYECTO 3</span>
+              <h3 class="iq-card-title">Interfaz Cursos Online</h3>
+              <p class="iq-card-desc">Diseño de interfaz para plataforma de cursos online, priorizando claridad visual, jerarquía de contenido y una experiencia de navegación fluida.</p>
+              <a href="assets/docs/Interfaz cursos online.pdf" target="_blank">Ver Proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CASO ESTUDIO BANNER -->
+<section class="iq-sec-rose iq-case-banner" id="caso-estudio">
   <div class="container">
-    <span class="tag" style="color:#CF98AE;">02 - PROYECTOS</span>
-    <h2>Proyectos</h2>
-    <div class="divider"></div>
+    <div class="row">
+      
+      <!-- TEXTO -->
+      <div class="col-lg-5 col-12 mb-4 mb-lg-0 iq-case-text">
+        <p class="iq-eyebrow-dark">03 — CASO ESTUDIO</p>
+        <h2 class="iq-case-title">UX4ALL — Plataforma Educativa Inclusiva</h2>
+      </div>
 
-    <div class="row g-4 mt-3">
-
-      <div class="col-lg-4 col-md-6">
-        <div class="project-card">
-          <img src="assets/modulo-1.jpg">
-          <div class="content">
-            <span class="tag" style="color:#CF98AE;" >PROYECTO 1</span>
-            <h6>UX4ALL</h6>
-            <p>Diseño de experiencia inclusiva enfocado en accesibilidad y usabilidad, para garantizar un producto comprensible y usable por distintos tipos de usuarios.</p>
-            <a href="assets/docs/UX4ALL.pdf" target="_blank">
-  Ver Proyecto <i class="bi bi-arrow-right"></i>
-</a>
-          </div>
+      <!-- IMAGEN -->
+      <div class="col-lg-7 col-12">
+        <div class="iq-mockup-wrap">
+          <img src="assets/ayuda.png" alt="Mockup UX4ALL" class="iq-mockup-img"/>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6">
-        <div class="project-card">
-          <img src="assets/modulo-2.jpg">
-          <div class="content">
-            <span class="tag" style="color:#CF98AE;">PROYECTO 2</span>
-            <h6>Plataforma Educativa</h6>
-            <p>Estructuración de una plataforma educativa optimizando la organización de contenidos y navegación para facilitar el acceso y comprensión del usuario.</p>
-            <a href="assets/docs/Plataformas educativas.pdf" target="_blank">
-  Ver Proyecto <i class="bi bi-arrow-right"></i>
-</a>
+    </div>
+  </div>
+</section>
+
+  <!-- EL PROYECTO -->
+  <section class="iq-sec-white iq-proyecto-sec">
+    <div class="container">
+      <h2 class="iq-title mb-5">El Proyecto</h2>
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="iq-icard iq-icard--blue h-100">
+            <div class="iq-icard-header">
+              <i class="bi bi-file-earmark-text iq-icard-icon-inline"></i>
+              <h4 class="iq-icard-title">Descripción</h4>
+            </div>
+            <p class="iq-icard-text">Diseño de una plataforma educativa digital inclusiva enfocada en mejorar la accesibilidad, usabilidad y experiencia de aprendizaje para estudiantes con diversas capacidades. El proyecto se desarrolló aplicando metodologías de Diseño Centrado en el Usuario (DCU).</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="iq-icard iq-icard--dark h-100">
+            <div class="iq-icard-header">
+              <i class="bi bi-lightning-charge iq-icard-icon-inline"></i>
+              <h4 class="iq-icard-title">Desafío Principal</h4>
+            </div>
+            <p class="iq-icard-text">Las plataformas educativas actuales presentan barreras de accesibilidad, sobrecarga visual y problemas de navegación que dificultan el aprendizaje, especialmente para usuarios con necesidades específicas.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="iq-icard iq-icard--pink h-100">
+            <div class="iq-icard-header">
+              <i class="bi bi-lightning-charge iq-icard-icon-inline"></i>
+              <h4 class="iq-icard-title">Solución Propuesta</h4>
+            </div>
+            <p class="iq-icard-text">Se diseñó una interfaz que prioriza la experiencia del usuario mediante una navegación simplificada y consistente, incorporando elementos de accesibilidad como subtítulos, material visual y contenido inclusivo. Se logró reducir la incertidumbre mediante señales visuales y feedback claro.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HERRAMIENTAS UTILIZADAS -->
+  <section class="iq-sec-white iq-tools-sec">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-4">
+          <h2 class="iq-title">Herramientas<br/>Utilizadas</h2>
+        </div>
+        <div class="col-lg-8">
+          <div class="row g-4 text-center">
+            <div class="col-6 col-md-3">
+              <div class="iq-tool">
+                <div class="iq-tool-icon"><i class="bi bi-bezier2"></i></div>
+                <p class="iq-tool-label">Balsamiq Wireframes</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="iq-tool">
+                <div class="iq-tool-icon"><i class="bi bi-people"></i></div>
+                <p class="iq-tool-label">Entrevistas Semiestructuradas</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="iq-tool">
+                <div class="iq-tool-icon"><i class="bi bi-person-check"></i></div>
+                <p class="iq-tool-label">User Persona &amp; User Journey</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="iq-tool">
+                <div class="iq-tool-icon"><i class="bi bi-clipboard"></i></div>
+                <p class="iq-tool-label">Evaluación Heurística de Nilsen</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-lg-4 col-md-6">
-        <div class="project-card">
-          <img src="assets/modulo-3.jpg">
-          <div class="content">
-            <span class="tag" style="color:#CF98AE;">PROYECTO 3</span>
-            <h6>Interfaz Cursos Online</h6>
-            <p>Diseño de interfaz para plataforma de cursos online, priorizando claridad visual, jerarquía de contenido y una experiencia de aprendizaje fluida.</p>
-             <a href="assets/docs/Interfaz cursos online.pdf" target="_blank">
-  Ver Proyecto <i class="bi bi-arrow-right"></i>
-</a>
+  <!-- APRENDIZAJE -->
+  <section class="iq-sec-learn" id="aprendizaje">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="iq-wf-grid">
+            <img src="assets/mockups.png" alt="Wireframe 1" class="iq-wf iq-wf-a"/>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="iq-title mb-5">Aprendizaje</h2>
+          <ul class="iq-learn-list">
+            <li><i class="bi bi-check-circle iq-check-icon"></i>La accesibilidad no es un "extra", sino parte central del diseño.</li>
+            <li><i class="bi bi-check-circle iq-check-icon"></i>La jerarquía visual impacta directamente en la comprensión.</li>
+            <li><i class="bi bi-check-circle iq-check-icon"></i>Validar con usuarios permite detectar problemas reales.</li>
+            <li><i class="bi bi-check-circle iq-check-icon"></i>El diseño inclusivo mejora la experiencia para todos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO & RESULTADOS -->
+  <section class="iq-sec-white" id="resultados">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="iq-title mb-4">Impacto &amp; Resultados</h2>
+          <p class="iq-body">El proyecto permitió detectar múltiples problemas críticos de usabilidad, especialmente en áreas como la prevención de errores y la falta de feedback del sistema, lo que evidenció oportunidades de mejora concretas. A través del testeo con usuarios, se obtuvieron avances significativos en la claridad de navegación y en la comprensión de las tareas, logrando reducir la incertidumbre mediante la incorporación de señales visuales y feedback oportuno. Como resultado, se optimizaron los flujos de uso del prototipo, facilitando una experiencia más clara, eficiente e inclusiva.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES APLICADAS -->
+  <section class="iq-sec-white iq-skills-sec">
+    <div class="container">
+      <h2 class="iq-title mb-5">Habilidades Aplicadas</h2>
+      <div class="iq-tags">
+        <span class="iq-tag iq-tag--blue">UX Reserch</span>
+        <span class="iq-tag iq-tag--pink">Arquitectura de la información</span>
+        <span class="iq-tag iq-tag--pink">Diseño de interacción</span>
+        <span class="iq-tag iq-tag--pink">Prototipado</span>
+        <span class="iq-tag iq-tag--blue">Evaluación heurística</span>
+        <span class="iq-tag iq-tag--pink">Diseño centrado en el usuario</span>
+        <span class="iq-tag iq-tag--pink">Testeo de usuarios</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECCIÓN DE PROYECTO -->
+  <section class="iq-sec-white iq-selection-sec">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <h2 class="iq-title mb-4">Selección de Proyecto</h2>
+          <p class="iq-question-label">¿Por qué elegí este proyecto?</p>
+          <p class="iq-body">Porque refleja mi crecimiento como diseñadora UX/UI, integrando todo el proceso de diseño (investigación, definición, ideación y validación) y abordando una problemática relevante como la accesibilidad digital, lo que demuestra mi enfoque en crear soluciones inclusivas y centradas en las personas.</p>
+        </div>
+        <div class="col-lg-7 text-center">
+          <div class="iq-laptop-wrap">
+            <img src="assets/macbook.png" alt="Selección de proyecto" class="iq-laptop-img"/>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-  <div class="container">
-    <div class="col-lg-6">
-        <span class="tag" >03 - SOBRE MI</span>
-      <h2 style="color:#CF98AE;">¡Hola, soy Ivania!</h2>
-      <div class="divider light" ></div>
+  <!-- HOLA SOY IVANIA -->
+  <section class="iq-sec-about" id="sobre-mi">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 col-12">
+          <p class="iq-eyebrow-light">04 - SOBRE MÍ</p>
+          <h2 class="iq-about-title">¡Hola, soy Ivania!</h2>
+          <div class="iq-hero-rule mb-4"></div>
+          <p class="iq-about-text">
+Soy diseñadora UX/UI en formación con base en diseño gráfico, enfocada en crear soluciones digitales claras y funcionales. Me interesa entender los problemas desde la investigación para desarrollar experiencias que realmente aporten valor.
 
-      <p>
-        Soy diseñadora UX/UI en formación con base en diseño gráfico, enfocada en crear soluciones digitales claras y funcionales. Me interesa entender los problemas desde la investigación para desarrollar experiencias que realmente aporten valor.
-
-Tengo experiencia trabajando en proyectos reales, tanto de forma independiente como en equipo, lo que me ha permitido fortalecer mi organización, adaptabilidad y capacidad de llevar ideas a ejecución. Me motiva seguir aprendiendo y diseñar productos que no solo se vean bien, sino que funcionen.
-      </p>
-
-      <a href="assets/docs/cv-ivania-quintana_.pdf" download class="btn btn-light mt-3">
-  Descargar CV <i class="bi bi-download ms-2"></i>
-</a>
-
+Tengo experiencia trabajando en proyectos reales, tanto de forma independiente como en equipo, lo que me ha permitido fortalecer mi organización, adaptabilidad y capacidad de llevar ideas a ejecución. Me motiva seguir aprendiendo y diseñar productos que no solo se vean bien, sino que funcionen.          </p>
+          <p class="iq-about-text mt-3">
+            Cuéntame sobre tu proyecto. Trabajemos juntos en lo que podemos crear.
+          </p>
+          <a  href="assets/docs/cv-ivania-quintana_.pdf" download class="iq-btn-cta animate-fade-up delay-3">
+            Descargar CV <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+        <div class="col-lg-6 col-12 text-center">
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contacto" class="contact">
-  <div class="container">
-    <span class="tag" style="color:#CF98AE;">04 - CONTACTO</span>
-    <h2>
-      Cuéntame sobre tu proyecto.<br>
-      Hablemos de lo que podemos crear juntos.
-    </h2>
-
-    <div class="divider"></div>
-
-    <form class="form mt-4 col-lg-6">
-        <span class="tag">Nombre</span>
-      <input type="text" placeholder="Nombre">
-      <span class="tag">Email</span>
-      <input type="email" placeholder="Email">
-      <span class="tag">Mensaje</span>
-      <textarea rows="4" placeholder="Cuéntame brevemente sobre tu proyecto o necesidad"></textarea>
-
-      <button type="submit">
-        Enviar mensaje <i class="bi bi-send ms-2"></i>
-      </button>
-    </form>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container text-center">
-    <p>© 2025 IvaIvania Quintana</p>
-<p>Diseñadora UX/UI enfocada en crear experiencias digitales claras, funcionales y centradas en el usuario.</p>
-    <p>ivaniaa.quintana@gmail.com</p>
-    <p>+569 44077805</p>
-<div class="social mt-3">
-      <i class="bi bi-linkedin"></i>
-      <i class="bi bi-behance"></i>
-      <i class="bi bi-dribbble"></i>
+  <!-- CONTACTO -->
+  <section class="iq-sec-cream" id="contacto">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <p class="iq-eyebrow-dark">05 — CONTACTO</p>
+          <h2 class="iq-contact-title mb-5">
+            Cuéntame sobre tu proyecto. Hablemos de lo que podemos crear juntos.
+          </h2>
+          <form id="contactForm" novalidate>
+            <div class="mb-4">
+              <label for="nombre" class="iq-form-label">Nombre</label>
+              <input type="text" class="iq-input form-control" id="nombre" name="nombre" placeholder="Tu nombre completo" required/>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="iq-form-label">Email</label>
+              <input type="email" class="iq-input form-control" id="email" name="email" placeholder="tuemail.com" required/>
+            </div>
+            <div class="mb-4">
+              <label for="mensaje" class="iq-form-label">Mensaje</label>
+              <textarea class="iq-input form-control" id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame brevemente sobre tu proyecto o necesidad." required></textarea>
+            </div>
+            <button type="submit" class="iq-btn-send w-100">
+              Enviar mensaje <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+            <div id="formMsg" class="iq-form-feedback mt-3 d-none"></div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="js/main.js"></script>
+  <!-- FOOTER -->
+  <footer class="iq-footer">
+    <div class="container">
+      <div class="row align-items-start gy-4">
+        <div class="col-lg-8">
+          <h4 class="iq-footer-name">Ivania Quintana</h4>
+          <p class="iq-footer-bio">Diseñadora UX/UI enfocada en crear experiencias digitales claras, funcionales y centradas en el usuario.</p>
+          <div class="mt-2">
+            <a href="mailto:ivania.quintana@gmail.com" class="iq-footer-link d-block">ivania.quintana@gmail.com</a>
+            <span class="iq-footer-link">+569 44377906</span>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-lg-end align-items-start pt-1">
+          <div class="iq-social">
+            <a href="#" class="iq-social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="iq-social-btn" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="iq-footer-divider"/>
+      <p class="iq-footer-copy">© 2026 Ivania Quintana — Portafolio UX/UI</p>
+    </div>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
